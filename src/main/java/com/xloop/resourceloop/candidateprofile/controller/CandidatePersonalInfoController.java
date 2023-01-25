@@ -44,7 +44,7 @@ public class CandidatePersonalInfoController {
     public ResponseEntity<CandidatePersonalInfo> updatePersonalInformation(@PathVariable Long id, @RequestBody CandidatePersonalInfo personalInformation) {
         CandidatePersonalInfo updatedPersonalInformation = PersonalInfoService.updatePersonalInformation(id, personalInformation);
         if (updatedPersonalInformation==null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         else{
             return new ResponseEntity<>(updatedPersonalInformation, HttpStatus.OK);
